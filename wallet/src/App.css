@@ -6,17 +6,37 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  background-color: aqua;
+  /* background-color: aqua; */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%), linear-gradient(180deg, #00c1ff, #0068ff);
 }
 
 .frontPageLogo {
   width: 80%;
+  border-radius: 10px;
 }
+
+/* .frontPageButton {
+  width: 90%;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+} */
 
 .frontPageButton {
   width: 90%;
   margin-top: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
+
 
 .frontPageBottom {
   align-items: flex-end;
@@ -34,14 +54,24 @@
 }
 
 h2 {
-  font-size: 40px;
-  margin-bottom: 5px;
-  color: rgb(46, 46, 46);
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #f9f9f9;
+}
+
+.h3 {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: #f9f9f9;
 }
 
 .h4 {
-  color: rgb(46, 46, 46);
-  padding-bottom: 50px;
+  color: #f9f9f9;
+  padding-bottom: 30px;
 }
 
 a:visited {
@@ -51,7 +81,7 @@ a:visited {
 header {
   width: 100%;
   height: 80px;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,6 +130,7 @@ header {
   color: #faad14;
   background: #fffbe6;
   border: 1px solid #ffe58f;
+  border-radius: 10px;
   padding: 5px;
   text-align: justify;
   width: 310px;
