@@ -4,11 +4,17 @@ import { useState } from "react";
 import { Select } from "antd";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home"
+import CreateAccount from "./components/CreateAccount";
+import RecoverAccount from "./components/RecoverAccount";
+import WalletView from "./components/WalletView"
 // import logo from "./assets/logo1.png"
 
 const { Title, Text } = Typography;
 
 function App() {
+
+  const [wallet, setWallet] = useState(null);
+  const [seedPhrase, setSeedPhrase] = useState(null);
   const [selectdChain, setSelectdChain] = useState("0x1");
 
   return (
@@ -19,12 +25,13 @@ function App() {
           level={3} 
           className="title"
           style={{
-            color:"#00ffff"
+            color:"#f9f9f9"
           }}
         >
           Lumitrix
           <Text 
-            level={5}                         className="subtitle"
+            level={5}                         
+            className="subtitle"
             italic
           >
             Wallet
@@ -55,9 +62,36 @@ function App() {
         >
         </Select>
       </header>
-      <Routes>
+      { wallet && seedPhrase ?
+        <Routes>
+          <Route 
+            path="/yourwallet" 
+            element={
+              <WalletView
+                wallet = {wallet}
+                setWallet = {setWallet}
+                seedPhrase = {seedPhrase}
+                setSeedPhrase = {setSeedPhrase}
+                selectdChain = {selectdChain}
+              />
+            } 
+          />
+        </Routes>
+        :
+        <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/recover" element={<RecoverAccount/>} />
+        <Route 
+          path="/yourwallet" 
+          element={
+            <CreateAccount 
+              setSeedPhrase={setSeedPhrase} 
+              setWallet={setWallet} 
+            />
+          } 
+        />
       </Routes>
+      }
     </div>
   );
 }
