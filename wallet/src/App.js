@@ -80,7 +80,15 @@ function App() {
         :
         <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/recover" element={<RecoverAccount/>} />
+        <Route 
+          path="/recover" 
+          element={
+            <RecoverAccount
+              setSeedPhrase={setSeedPhrase}
+              setWallet={setWallet}
+            />
+          } 
+        />
         <Route 
           path="/yourwallet" 
           element={
