@@ -38,7 +38,23 @@ function CreateAccount( props ) {
         >
           Generate Seed Phrase
         </Button>
-        <Card className="seedPhraseContainer" >
+        <Card 
+          // className="seedPhraseContainer" 
+          style={{
+            background: "rgba(255, 255, 255, 0.2)",
+            borderRadius: "10px",
+            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+            backdropFilter: "blur(5px)",
+            WebkitBackdropFilter: "blur(5px)",
+            border: "2px solid rgba(255, 255, 255, 0.3)",
+            padding: "10px",
+            color: "#f9f9f9",
+            fontSize: "1rem",
+            width: "310px",
+            minHeight: "160px",
+            marginTop: "30px"
+          }}
+        >
           {newSeedPhrase && <pre style={{whiteSpace: "pre-wrap"}}>{newSeedPhrase}</pre>}
         </Card>
         <Button 
