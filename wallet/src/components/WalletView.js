@@ -1,5 +1,7 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { Divider, Tooltip, List, Avatar, Spin, Tabs, Input, Button} from "antd";
+import { LogoutOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const tokens = [
   {
@@ -35,11 +37,22 @@ const nfts = [
 ];
 
 function WalletView( props ) {
+
+  const navigate = useNavigate();
+
+  function logout() {
+    props.setSeedPhrase(null);
+    props.setWallet(null);
+    navigate("/");
+  }
  
   return (
     <>
       <div className="content">
-        {props.wallet}
+        <div className="logoutButton" onClick={logout} >
+          <LogoutOutlined/>
+        </div>
+          {props.wallet}
       </div>
     </>
   );
