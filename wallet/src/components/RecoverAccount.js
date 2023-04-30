@@ -1,3 +1,4 @@
+import "../App.css";
 import React from "react";
 import { BulbOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
@@ -8,6 +9,29 @@ import { ethers } from "ethers";
 const { TextArea } = Input;
 
 function RecoverAccount( props ) {
+
+  const navigate = useNavigate();
+  const [typedSeed, setTypedSeed] = useState("");
+  const [nonValid, setNonValid] = useState(false);
+
+  function seedAdjust(e) {
+    setNonValid(false);
+    setTypedSeed(e.target.value);
+  }
+
+  function recoverWallet() {
+    let recoveredWallet;
+    try {
+      recoveredWallet = ethers.Wallet.fromPhrase(typedSeed);
+    } catch (error) {
+      setNonValid(true);
+      return;
+    }
+
+    props.setSeedPhrase(typedSeed);
+    props.setWallet(recoveredWallet.address);
+    navigate("/yourwallet");
+  }
 
   return (
     <>
@@ -20,29 +44,44 @@ function RecoverAccount( props ) {
             </div>
         </div>
         <TextArea
+          value={typedSeed}
+          onChange={seedAdjust}
           rows={4}
-          style={{
-            background: "rgba(255, 255, 255, 0.2)",
-            borderRadius: "10px",
-            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-            backdropFilter: "blur(5px)",
-            WebkitBackdropFilter: "blur(5px)",
-            border: "2px solid rgba(255, 255, 255, 0.3)",
-            padding: "10px",
-            color: "#f9f9f9",
-            fontSize: "1rem",
-            width: "310px",
-            minHeight: "160px",
-            marginTop: "30px"
-          }}
+          className="textArea"
           placeholder="Type your seed phrase here..."
         />
         <Button
+          disabled={
+            typedSeed.split(" ").length !== 12 || typedSeed.slice(-1) === " "
+          }
           className="frontPageButton"
           type="primary"
+          onClick={()=>recoverWallet()}
         >
           Recover Wallet
         </Button>
+        {
+          nonValid && (
+            <p
+              style={{
+                color: "red",
+                fontWeight:"bold"
+              }}
+            >
+              Invalid Seed Phrase
+            </p>
+          )             
+        }
+        <p 
+          className="frontPageButton"
+          onClick={()=>navigate("/")}
+          style={{
+            color:"#f9f9f9",
+            cursor:"pointer"
+          }}
+        >
+          Back Home
+        </p>
       </div>
     </>
   );
