@@ -52,7 +52,17 @@ function WalletView( props ) {
         <div className="logoutButton" onClick={logout} >
           <LogoutOutlined/>
         </div>
-          {props.wallet}
+          <div className="walletName" >
+            Your Wallet
+          </div>
+          <Tooltip 
+            title={props.wallet} 
+            style={{
+              color: "#f9f9f9"
+            }}
+          >
+            {props.wallet.slice(0,4)}...{props.wallet.slice(38)}
+          </Tooltip>
       </div>
     </>
   );
