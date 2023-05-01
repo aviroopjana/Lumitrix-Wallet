@@ -159,8 +159,8 @@ header {
 }
 
 .logoutButton {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -168,18 +168,28 @@ header {
   right: 20px;
   top: 5px;
   border-radius: 100px;
+  background-color: #ffffff;
+  color: #00bfff;
+  font-size: 1.5em;
+  text-align: center;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .logoutButton:hover {
-  background-color: rgba(0, 0, 0, 0.036);
-  cursor: pointer;
+  background-color: #00bfff;
+  color: #ffffff;
 }
+
 
 .walletView {
   width: 350px;
   padding: 10px;
   height: 100%;
   overflow-y: auto;
+  color:#f9f9f9;
+  font-weight: 600;
 }
 
 .sendRow {
