@@ -15,7 +15,7 @@ function App() {
 
   const [wallet, setWallet] = useState(null);
   const [seedPhrase, setSeedPhrase] = useState(null);
-  const [selectdChain, setSelectdChain] = useState("0x1");
+  const [selectedChain, setSelectedChain] = useState("0x1");
 
   return (
     <div className="App">
@@ -38,8 +38,8 @@ function App() {
           </Text>
         </Title>
         <Select
-          onChange={(val)=>setSelectdChain(val)}
-          value={selectdChain}
+          onChange={(val)=>setSelectedChain(val)}
+          value={selectedChain}
           options={[
             {
               label: "Ethereum",
@@ -72,7 +72,7 @@ function App() {
                 setWallet = {setWallet}
                 seedPhrase = {seedPhrase}
                 setSeedPhrase = {setSeedPhrase}
-                selectdChain = {selectdChain}
+                selectedChain = {selectedChain}
               />
             } 
           />
