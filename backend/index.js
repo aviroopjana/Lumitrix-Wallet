@@ -40,18 +40,17 @@ app.get("/getTokens", async (req, res) => {
     balance: balance.raw.balance / (10 ** 18)
   }
 
+
   return res.status(200).json(jsonResponse);
 });
 
 Moralis.start({
   apiKey: process.env.MORALIS_KEY,
 }).then(() => {
-  console.log("Moralis server started successfully!");
   app.listen(port, () => {
     console.log(`Listening for API Calls`);
   });
-}).catch((error) => {
-  console.log("Moralis server failed to start:", error);
 });
 
-//http://localhost:3001/getTokens?userAddress=0x1FfDC7Fd89614156A85ED3600f98f47523babe9d&chain=0x1
+
+// http://localhost:3001/getTokens?userAddress=0xD8b95EAf38992e7544b31f6E71d96aB2F72eD489&chain=0x13881
