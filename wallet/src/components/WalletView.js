@@ -3,6 +3,7 @@ import { Divider, Tooltip, List, Avatar, Spin, Tabs, Input, Button} from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import  axios from "axios";
+import logo from "../noImg.png";
 import { CHAINS_CONFIG } from "../chains";
 
 
@@ -34,7 +35,7 @@ function WalletView({
                 renderItem={(item,index) => (
                   <List.Item style={{ textAlign: "left" }} >
                     <List.Item.Meta
-                      avatar={ <Avatar src={item.logo} /> }
+                      avatar={ <Avatar src={item.logo || logo} /> }
                       title={item.symbol}
                       description={item.name}
                     />
@@ -114,37 +115,76 @@ function WalletView({
         <>
           <h3>Native Balance </h3>
           <h1>
-            {balance.toFixed(2)} 
+            {balance.toFixed(2)} {CHAINS_CONFIG[selectedChain].ticker}
           </h1>
+          <div className="sendRow">
+            <p style={{ width: "90px", textAlign: "left" }}>To:</p>
+            <Input className="sendInput" placeholder="0x..." />
+          </div>
+          <div className="sendRow" >
+            <p style={{ width:"90px", textAlign:"left" }}>Amount:</p>
+            <Input
+              className="sendInput"
+              placeholder="Tokens you wish to send..."
+            />
+          </div>
+          <Button className="sendTokensButton" type="primary">
+            <span>Send Tokens</span>
+          </Button>
         </>
     }
   ]
 
+  // async function getAccountTokens() {
+  //   setFetching(true);
+
+  //   const res = await axios.get(`http://localhost:3001/getTokens`, {
+  //     params: {
+  //       userAddress: wallet,
+  //       chain: selectedChain,
+  //     },
+  //   });
+
+  //   const response = res.data;
+
+  //   if (response.tokens.length > 0) {
+  //     setTokens(response.tokens);
+  //   }
+
+  //   if (response.nfts.length > 0) {
+  //     setNfts(response.nfts);
+  //   }
+
+  //   setBalance(response.balance);
+
+  //   setFetching(false);
+  // }
+
   async function getAccountTokens() {
     setFetching(true);
-
+  
     const res = await axios.get(`http://localhost:3001/getTokens`, {
       params: {
         userAddress: wallet,
         chain: selectedChain,
       },
     });
-
+  
     const response = res.data;
-
-    if (response.tokens.length > 0) {
+  
+    if (response?.tokens?.length > 0) {
       setTokens(response.tokens);
     }
-
-    if (response.nfts.length > 0) {
+  
+    if (response?.nfts?.length > 0) {
       setNfts(response.nfts);
     }
-
-    setBalance(response.balance);
-
+  
+    setBalance(response?.balance || 0);
+  
     setFetching(false);
   }
-
+  
   function logout() {
     setSeedPhrase(null);
     setWallet(null);
