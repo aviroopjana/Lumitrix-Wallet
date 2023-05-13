@@ -23,11 +23,16 @@ app.get("/getTokens", async (req, res) => {
     mediaItems: true,
   });
 
-  const myNfts = nfts.raw.result.map((e, i) => {
+  const myNFTs = nfts.raw.result.map((e, i) => {
     if (e?.media?.media_collection?.high?.url && !e.possible_spam && (e?.media?.category !== "video") ) {
       return e["media"]["media_collection"]["high"]["url"];
     }
   })
+
+  // const myNfts = nfts.raw.result
+  // .filter((e) => e && e.media?.media_collection?.high?.url && !e.possible_spam && e.media.category !== "video")
+  // .map((e) => e.media.media_collection.high.url);
+
 
   const balance = await Moralis.EvmApi.balance.getNativeBalance({
     chain: chain,
@@ -36,7 +41,7 @@ app.get("/getTokens", async (req, res) => {
 
   const jsonResponse = {
     tokens: tokens.raw,
-    nfts: myNfts,
+    nfts: myNFTs,
     balance: balance.raw.balance / (10 ** 18)
   }
 
