@@ -193,12 +193,135 @@ header {
 }
 
 .sendRow {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  align-items: center;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  align-items: center !important;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
 }
+
+.sendRow p {
+  width: 90px;
+  text-align: left;
+  margin: 0;
+}
+
+.sendRow input {
+  flex: 1;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #f9f9f9;
+  width: 100%;
+}
+
+.sendRow input:focus {
+  border-color: white;
+  outline: none;
+}
+
+.sendRow input::placeholder {
+  color: #f9f9f9; 
+}
+
+.sendInput {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  color: #f9f9f9;
+}
+
+.sendInput:focus {
+  border-color: white;
+  outline: none;
+}
+
+/* .sendTokensButton {
+  background: #0011ffea !important;
+  color: #fff !important;
+  border-radius: 7.5px !important;
+  border: none !important;
+  font-weight: bold !important;
+  transition: background 0.3s, box-shadow 0.3s !important;
+}
+
+.sendTokensButton:hover {
+  background: #87e6f7ea !important;
+}
+
+.sendTokensButton:active {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+} */
+
+/* .sendTokensButton {
+  width: 150px !important;
+  background: linear-gradient(45deg, #1792ff, #0e68c7) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  transition: background 0.3s box-shadow 0.3s !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.sendTokensButton:hover {
+  background: linear-gradient(45deg, #0e68c7, #1792ff) !important;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.12) !important;
+}
+
+.sendTokensButton:active {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+} */
+
+.sendTokensButton {
+  width: 150px !important;
+  background: linear-gradient(45deg, #1792ff, #0e68c7) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  transition: background 0.3s, box-shadow 0.3s !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.sendTokensButton:hover {
+  background: linear-gradient(45deg, #0e68c7, #1792ff) !important;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.12) !important;
+}
+
+.sendTokensButton:active {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+  animation: glowing 1s infinite !important;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #1792ff, 0 0 10px #1792ff, 0 0 20px #1792ff, 0 0 30px #1792ff !important;
+  }
+  50% {
+    box-shadow: 0 0 5px #1792ff, 0 0 10px #1792ff, 0 0 20px #1792ff, 0 0 30px #1792ff, 0 0 40px #1792ff !important;
+  }
+  100% {
+    box-shadow: 0 0 5px #1792ff, 0 0 10px #1792ff, 0 0 20px #1792ff, 0 0 30px #1792ff !important;
+  }
+}
+
+
 
 .nftImage {
   margin-bottom: 10px;
