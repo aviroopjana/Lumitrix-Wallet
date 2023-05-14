@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import  axios from "axios";
 import logo from "../noImg.png";
 import { CHAINS_CONFIG } from "../chains";
-
+import {ethers} from "ethers";
 
 function WalletView({
   wallet,
@@ -19,6 +19,10 @@ function WalletView({
   const [tokens, setTokens] = useState(null);
   const [balance, setBalance] = useState(0);
   const [fetching, setFetching] = useState(true);
+  const [sentToAddress, setSentToAddress] = useState(null);
+  const [amountToSend, setAmountToSend] = useState(null);
+  const [processing, setProcessing] = useState(false);
+  const [hash, setHash] = useState(null);
 
   const items = [
     {
@@ -119,46 +123,81 @@ function WalletView({
           </h1>
           <div className="sendRow">
             <p style={{ width: "90px", textAlign: "left" }}>To:</p>
-            <Input className="sendInput" placeholder="0x..." />
+            <Input 
+              value={sentToAddress}
+              onChange={(e) => setSentToAddress(e.target.value)}
+              className="sendInput" placeholder="0x..." 
+            />
           </div>
           <div className="sendRow" >
             <p style={{ width:"90px", textAlign:"left" }}>Amount:</p>
             <Input
+              value={amountToSend}
+              onChange={(e)=> setAmountToSend(e.target.value)}
               className="sendInput"
               placeholder="Tokens you wish to send..."
             />
           </div>
-          <Button className="sendTokensButton" type="primary">
-            <span>Send Tokens</span>
+          <Button
+            className={`sendTokensButton ${processing ? 'sending' : ''}`}
+            type="primary"
+            onClick={() => sendTransaction(sentToAddress, amountToSend)}
+            disabled={processing}
+          >
+            {processing ? <Spin size="small" /> : 'Send Tokens'}
           </Button>
+          {processing && (
+            <div className="processingContainer">
+              {hash && (
+                <Tooltip title={hash}>
+                  <p>Hover for tx hash</p>
+                </Tooltip>
+              )}
+            </div>
+          )}
         </>
     }
   ]
 
-  // async function getAccountTokens() {
-  //   setFetching(true);
+  async function sendTransaction(to, amount) {
+    const chain = CHAINS_CONFIG[selectedChain];
 
-  //   const res = await axios.get(`http://localhost:3001/getTokens`, {
-  //     params: {
-  //       userAddress: wallet,
-  //       chain: selectedChain,
-  //     },
-  //   });
+    const provider = new ethers.JsonRpcProvider(chain.rpcUrl);
 
-  //   const response = res.data;
+    const privateKey = ethers.Wallet.fromPhrase(seedPhrase).privateKey;
 
-  //   if (response.tokens.length > 0) {
-  //     setTokens(response.tokens);
-  //   }
+    const wallet = new ethers.Wallet(privateKey, provider);
 
-  //   if (response.nfts.length > 0) {
-  //     setNfts(response.nfts);
-  //   }
+    const tx = {
+      to: to,
+      value: ethers.parseEther(amount.toString()),
+    };
 
-  //   setBalance(response.balance);
+    setProcessing(true);
+    try{
+      const transaction = await wallet.sendTransaction(tx);
 
-  //   setFetching(false);
-  // }
+      setHash(transaction.hash);
+      const receipt = await transaction.wait();
+
+      setHash(null);
+      setProcessing(false);
+      setAmountToSend(null);
+      setSentToAddress(null);
+
+      if (receipt.status === 1) {
+        getAccountTokens();
+      } else {
+        console.log("failed");
+      }
+
+    }catch(err){
+      setHash(null);
+      setProcessing(false);
+      setAmountToSend(null);
+      setSentToAddress(null);
+    }
+  }
 
   async function getAccountTokens() {
     setFetching(true);
@@ -200,6 +239,7 @@ function WalletView({
     setTokens(null);
     setBalance(0);
     getAccountTokens();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -208,6 +248,7 @@ function WalletView({
     setTokens(null);
     setBalance(0);
     getAccountTokens();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedChain]);
  
   return (
