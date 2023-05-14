@@ -116,7 +116,19 @@ header {
 }
 
 .dropdown {
-  margin-right: 20px;
+  /* background: rgba(255, 255, 255, 0.2) !important; */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%), linear-gradient(180deg, #00c1ff, #0068ff);
+  border-radius: 10px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 4px !important;
+  color: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%), linear-gradient(180deg, #00c1ff, #0068ff) !important;
+  font-size: 1rem !important;
+  /* width: 100px !important; */
+  margin-right: 20px !important;
+  margin-top: 10px !important;
 }
 
 .content {
@@ -251,43 +263,6 @@ header {
   outline: none;
 }
 
-/* .sendTokensButton {
-  background: #0011ffea !important;
-  color: #fff !important;
-  border-radius: 7.5px !important;
-  border: none !important;
-  font-weight: bold !important;
-  transition: background 0.3s, box-shadow 0.3s !important;
-}
-
-.sendTokensButton:hover {
-  background: #87e6f7ea !important;
-}
-
-.sendTokensButton:active {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
-} */
-
-/* .sendTokensButton {
-  width: 150px !important;
-  background: linear-gradient(45deg, #1792ff, #0e68c7) !important;
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: 5px !important;
-  font-weight: bold !important;
-  transition: background 0.3s box-shadow 0.3s !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08) !important;
-}
-
-.sendTokensButton:hover {
-  background: linear-gradient(45deg, #0e68c7, #1792ff) !important;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.12) !important;
-}
-
-.sendTokensButton:active {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
-} */
-
 .sendTokensButton {
   width: 150px !important;
   background: linear-gradient(45deg, #1792ff, #0e68c7) !important;
@@ -321,12 +296,38 @@ header {
   }
 }
 
+.sendTokensButton.sending {
+  position: relative !important;
+}
 
+.sendTokensButton.sending > span {
+  visibility: hidden !important;
+}
+
+.sendTokensButton.sending > .ant-spin {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.processingContainer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 10px !important;
+}
+
+.processingContainer p {
+  margin-left: 5px !important;
+  font-size: 14px !important;
+  color: #f9f9f9 !important;
+}
 
 .nftImage {
-  margin-bottom: 10px;
-  height: 240px;
-  width: 240px;
-  object-fit: cover;
-  border-radius: 10px;
+  margin-bottom: 10px !important;
+  height: 240px !important;
+  width: 240px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
 }
