@@ -7,7 +7,6 @@ import Home from "./components/Home"
 import CreateAccount from "./components/CreateAccount";
 import RecoverAccount from "./components/RecoverAccount";
 import WalletView from "./components/WalletView"
-// import logo from "./assets/logo1.png"
 
 const { Title, Text } = Typography;
 
@@ -20,7 +19,6 @@ function App() {
   return (
     <div className="App">
       <header>
-        {/* <img src={logo} alt="logo" className="headerlogo" /> */}
         <Title 
           level={3} 
           className="title"
