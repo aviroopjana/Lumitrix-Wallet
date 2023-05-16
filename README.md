@@ -30,9 +30,9 @@ These are some of the features the wallet extension offers
 
 <div align="center">
   <div style="display:flex;justify-content:space-evenly">
-    <img width="24%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss1.png" alt="Image 1" />
-    <img width="24%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss2.png" alt="Image 2" />
-    <img width="24%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss6.png" alt="Image 3" />
+    <img width="26%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss1.png" alt="Image 1" />
+    <img width="26%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss2.png" alt="Image 2" />
+    <img width="26%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss6.png" alt="Image 3" />
   </div>
 </div>
 
@@ -42,7 +42,7 @@ These are some of the features the wallet extension offers
 
 <div align="center">
   <div style="text-align: center;">
-    <img width="24%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss3.png" alt="Token Management" />
+    <img width="26%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss3.png" alt="Token Management" />
   </div>
 </div>
 
@@ -63,7 +63,7 @@ These are some of the features the wallet extension offers
 
 <div align="center">
   <div style="text-align: center;">
-    <img width="24%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss5.png" alt="Transfer" />
+    <img width="26%" src="https://raw.githubusercontent.com/aviroopjana/Lumitrix-Wallet/main/screenshots/ss5.png" alt="Transfer" />
   </div>
 </div>
 
