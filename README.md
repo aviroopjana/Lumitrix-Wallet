@@ -28,6 +28,7 @@ These are some of the features the wallet extension offers
   Create a new wallet account and securely log in using a seed phrase for easy access to your funds.
 
 <div align="center">
+<<<<<<< HEAD
   <div style="display:flex;justify-content:space-evenly">
     <img width="24%" src="./screenshots/ss1.png" alt="Image 1" />
     <img width="24%" src="./screenshots/ss2.png" alt="Image 2" />
@@ -40,6 +41,33 @@ These are some of the features the wallet extension offers
 <div align="center">
   <div style="text-align: center;">
     <img width="24%" src="./screenshots/ss3.png" alt="Token Management" />
+=======
+  <div style="text-align: center;">
+    <img width="26%" src="https://github.com/aviroopjana/Lumitrix-Wallet/blob/9765613192fe281c4c288379f133c25e3c5ddfb1/wallet/src/assets/ss1.png" alt="Image 1" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img width="26%" src="https://github.com/aviroopjana/Lumitrix-Wallet/blob/f993c7e572ee7f076597cf90c58dc3a1622f5641/wallet/src/assets/ss6.png" alt="Image 2" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img width="26%" src="https://github.com/aviroopjana/Lumitrix-Wallet/blob/9765613192fe281c4c288379f133c25e3c5ddfb1/wallet/src/assets/ss2.png" alt="Image 3" />
+    <p>Create a new wallet account by generating a seed phrase by clicking the <strong>Generate Seed Phrase</strong> button and securely log in using the seed phrase for easy, secure and faster access to your funds.</p>
+  </div>
+</div>                       
+
+### Token Management: 
+
+<div align="center">
+  <div style="text-align: center;">
+    <img width="26%" src="https://github.com/aviroopjana/Lumitrix-Wallet/blob/9765613192fe281c4c288379f133c25e3c5ddfb1/wallet/src/assets/ss3.png" alt="Token Management" />
+    <p>Now you can easily manage and monitor your token holdings, by clicking on the <strong>Tokens</strong> tab you can view the different tokens associate with your account and their token balances.</p>
+  </div>
+</div>
+
+### NFT Collection: 
+
+<div align="center">
+  <div style="text-align: center;">
+    <img width="26%" src="https://github.com/aviroopjana/Lumitrix-Wallet/blob/9765613192fe281c4c288379f133c25e3c5ddfb1/wallet/src/assets/ss4.png" alt="NFT" />
+    <p>You can explore and manage your non-fungible token (NFT) collection by clicking on the <strong>NFTs</strong> tab, it will display all the NFTs associate with your wallet address</p>
+>>>>>>> 8f23e4c02e38b134ceaaf9354dc751b30956913f
   </div>
 </div>
 
@@ -49,7 +77,12 @@ These are some of the features the wallet extension offers
 
 <div align="center">
   <div style="text-align: center;">
+<<<<<<< HEAD
     <img width="24%" src="./screenshots/ss4.png" alt="NFT" />
+=======
+    <img width="26%" src="https://github.com/aviroopjana/Lumitrix-Wallet/blob/9765613192fe281c4c288379f133c25e3c5ddfb1/wallet/src/assets/ss5.png" alt="Transfer" />
+    <p>View the balance of your wallet address of the particular selected chain and Send tokens securely between wallets, ensuring the integrity and privacy of your transactions. With that you can not only transfer your tokens on just a single chain by clicking on the above top right corner's select dropdown you can select the preferable chain and transfer tokens on that chain</p>
+>>>>>>> 8f23e4c02e38b134ceaaf9354dc751b30956913f
   </div>
 </div>
 
